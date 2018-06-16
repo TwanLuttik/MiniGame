@@ -1,0 +1,9 @@
+name: MiniGame
+main: com.twanl.minigame.MiniGame
+version: 0.0.1
+
+commands:
+  minigame:
+    usage: /<command>
+    description: main command
+    aliases: [m]

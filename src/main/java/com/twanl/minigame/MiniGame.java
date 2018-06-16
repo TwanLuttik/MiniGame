@@ -1,5 +1,6 @@
 package com.twanl.minigame;
 
+import com.twanl.minigame.util.ConfigManager;
 import com.twanl.minigame.util.Strings;
 import nl.RamonPeek.API;
 import org.bukkit.Bukkit;
@@ -20,10 +21,28 @@ public class MiniGame extends JavaPlugin {
             Bukkit.getServer().getPluginManager().disablePlugins();
         }
 
+        Load();
+        loadPlayers();
 
     }
 
     public void onDisable() {
 
+    }
+
+
+    private void Load() {
+        // Register Command Class
+        Commands commands = new Commands();
+        getCommand("minigame").setExecutor(commands);
+
+    }
+
+
+    public void loadPlayers() {
+        ConfigManager cfgM = new ConfigManager();
+        cfgM.setup();
+        cfgM.saveData();
+        cfgM.reloadData();
     }
 }
